@@ -1,0 +1,10 @@
+# Build outputs
+*.ipa
+*.app.dSYM.zip
+
+# Fastline outputs
+fastlane/test_output
+fastlane/report.xml
+
+# IDE settings
+.idea/
