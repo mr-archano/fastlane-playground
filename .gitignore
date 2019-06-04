@@ -1,10 +1,36 @@
-# Build outputs
-*.ipa
-*.app.dSYM.zip
+## Build generated
+build/
+DerivedData/
 
-# Fastline outputs
-fastlane/test_output
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Fastlane
 fastlane/report.xml
+fastlane/test_output
+fastlane/.env.secret
+fastlane/certificates/
+fastlane/artifacts/
 
 # IDE settings
 .idea/
+
