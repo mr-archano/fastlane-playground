@@ -1,0 +1,15 @@
+language: swift
+osx_image: xcode10.2
+cache:
+- bundler
+git:
+  depth: false
+env:
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+before_install:
+- bundle install
+script:
+- set -o pipefail
+- fastlane store
