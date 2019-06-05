@@ -16,11 +16,21 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
+### ios clean
+```
+fastlane ios clean
+```
+Clean
 ### ios store
 ```
 fastlane ios store
 ```
 Build for AppStore
+### ios upload_release_candidate
+```
+fastlane ios upload_release_candidate
+```
+Upload to AppStore
 
 ----
 

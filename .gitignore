@@ -30,6 +30,8 @@ fastlane/test_output
 fastlane/.env.secret
 fastlane/certificates/
 fastlane/artifacts/
+fastlane/Preview.html
+fastlane/.env.local
 
 # IDE settings
 .idea/

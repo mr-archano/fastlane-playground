@@ -1,17 +1,34 @@
 default_platform(:ios)
 
-appStoreProvisioningFile = "#{ENV["MATCH_OUTPUT_PATH"]}/AppStore_com.archano.ios.Fastlane-Playground.mobileprovision"
+$appStoreProvisioningFile = "#{ENV["MATCH_OUTPUT_PATH"]}/AppStore_com.archano.ios.Fastlane-Playground.mobileprovision"
+$ipaFile = "#{ENV["GYM_OUTPUT_DIRECTORY"]}/Fastlane Playground.ipa"
 
 platform :ios do
+
+	desc "Clean"
+	lane :clean do
+		xcclean
+	end
 
 	desc "Build for AppStore"
 	lane :store do
 		sync_code_signing(type: "appstore")
 		update_project_team
-		update_project_provisioning(profile: appStoreProvisioningFile)
+		update_project_provisioning(profile: $appStoreProvisioningFile)
 		build_ios_app(
 			clean: true,
 			codesigning_identity: "iPhone Distribution"
+		)
+	end
+
+	desc "Upload to AppStore"
+	lane :upload_release_candidate do
+		upload_to_app_store(
+			ipa: $ipaFile,
+			phased_release: true,
+			submit_for_review: false,
+			skip_screenshots: true,
+			skip_metadata: true
 		)
 	end
 
