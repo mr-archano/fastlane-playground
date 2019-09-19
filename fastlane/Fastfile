@@ -30,7 +30,7 @@ platform :ios do
 			}
 		)
 
-		File.open('status', 'w') { |f| f.write("SUCCESS") }
+		File.open('../status', 'w') { |f| f.write("SUCCESS") }
 	end
 
 	desc "Upload to AppStore"
