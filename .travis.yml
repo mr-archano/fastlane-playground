@@ -22,7 +22,7 @@ before_deploy:
 deploy:
   on:
     all_branches: true
-    condition: `cat status` = SUCCESS
+    condition: "`cat status` = SUCCESS"
   provider: releases
   api_key: "$CI_GITHUB_TOKEN"
   file_glob: true
