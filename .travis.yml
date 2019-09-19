@@ -24,7 +24,7 @@ deploy:
     all_branches: true
     condition: "`cat status` = SUCCESS"
   provider: releases
-  api_key: "$CI_GITHUB_TOKEN"
+  api_key: "XXXX"
   file_glob: true
   file: fastlane/artifacts/*
   skip_cleanup: true
