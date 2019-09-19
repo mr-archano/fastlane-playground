@@ -29,6 +29,8 @@ platform :ios do
 			    compileBitcode: false
 			}
 		)
+
+		File.open('status', 'w') { |f| f.write("SUCCESS") }
 	end
 
 	desc "Upload to AppStore"
