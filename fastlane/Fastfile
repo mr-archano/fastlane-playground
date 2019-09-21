@@ -2,6 +2,7 @@ default_platform(:ios)
 
 $appStoreProvisioningFile = "#{ENV["MATCH_OUTPUT_PATH"]}/AppStore_com.archano.ios.Fastlane-Playground.mobileprovision"
 $ipaFile = "#{ENV["GYM_OUTPUT_DIRECTORY"]}/Fastlane Playground.ipa"
+$dSYMFile = "#{ENV["GYM_OUTPUT_DIRECTORY"]}/Fastlane Playground.app.dSYM.zip"
 
 platform :ios do
 
@@ -39,6 +40,18 @@ platform :ios do
 			submit_for_review: false,
 			skip_screenshots: true,
 			skip_metadata: true
+		)
+	end
+
+	lane :create_release do
+		set_github_release(
+		  repository_name: ENV["TRAVIS_REPO_SLUG"],
+		  api_token: ENV["CI_GITHUB_TOKEN"],
+		  name: "Release 0.0.0",
+		  tag_name: "v0.0.0",
+		  description: "Some description",
+		  commitish: ENV["TRAVIS_BRANCH"],
+		  upload_assets: [$ipaFile, $dSYMFile]
 		)
 	end
 
